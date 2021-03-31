@@ -31,9 +31,9 @@ Material:
     - _ColorMask: 15
     - _MoveSpeed: 1
     - _Power: 1
-    - _Progress: 0
+    - _Progress: 0.893
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _FromPosition: {r: 25.965332, g: 376.12128, b: 0, a: 1}
+    - _FromPosition: {r: 25.965332, g: 257.7146, b: 0, a: 1}
     - _StreamerColor: {r: 0.8207547, g: 0.8193718, b: 0.8168832, a: 1}
-    - _ToPosition: {r: 199.02539, g: 203.06122, b: 0, a: 1}
+    - _ToPosition: {r: 199.02539, g: 84.65454, b: 0, a: 1}
