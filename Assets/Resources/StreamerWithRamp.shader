@@ -123,9 +123,10 @@
                     color += cAdd;
                 }
                 
-                #ifdef UNITY_UI_ALPHACLIP
-                clip(color.a - 0.001)
-                #endif
+                // this causes compile error when building towards WebGL (gles, gles3)
+                // #ifdef UNITY_UI_ALPHACLIP
+                // clip(color.a - 0.001)
+                // #endif
                 
                 return color;
             }
