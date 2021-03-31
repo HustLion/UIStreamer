@@ -84,7 +84,8 @@
                 
                 o.worldPosition = v.vertex;
                 o.objectPosition = o.vertex;
-                o.srcPos = ComputeScreenPos(UnityObjectToClipPos(v.vertex));
+                // o.srcPos = ComputeScreenPos(UnityObjectToClipPos(v.vertex));
+                o.srcPos = ComputeScreenPos(v.vertex);
                 
                 return o;
             }
@@ -110,7 +111,8 @@
                 
                 color *= UnityGet2DClipping(i.worldPosition.xy, _ClipRect);
                 float2 dir = _ToPosition.xy - _FromPosition.xy;
-                float2 screenPos = i.vertex.xy;
+                // float2 screenPos = i.vertex.xy;
+                float2 screenPos = i.srcPos.xy;
                 float d = clamp(dot(dir, screenPos.xy - _FromPosition.xy) / pow(length(dir), 2.0), 0.0, 1.0);
                 float t = frac(_Progress * _MoveSpeed);
                 d += t;
