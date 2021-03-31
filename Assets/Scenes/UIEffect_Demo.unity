@@ -1968,23 +1968,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 259261918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5acf0086878a4de9bbb5e66faccf7b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0.35
-  m_Width: 0.154
-  m_Rotation: 135
-  m_Softness: 1
-  m_Brightness: 1
-  m_Gloss: 1
-  m_EffectArea: 0
-  m_Player:
-    play: 0
-    initialPlayDelay: 0
-    duration: 1
-    loop: 0
-    loopDelay: 0
-    updateMode: 0
+  shouldUpdate: 1
 --- !u!114 &259261921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,7 +2018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9dc7e810a87b444ab96919f3215c2fe5, type: 2}
+  m_Material: {fileID: 2100000, guid: 46514fc47c779294cb28035c1e773cc2, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -5455,8 +5442,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 50857159}
   m_HandleRect: {fileID: 50857158}
   m_Direction: 2
-  m_Value: 0.99999946
-  m_Size: 0.28071788
+  m_Value: 0.9999996
+  m_Size: 0.28322935
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
