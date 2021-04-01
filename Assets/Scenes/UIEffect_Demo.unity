@@ -1972,6 +1972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldUpdate: 1
+  canvas: {fileID: 2059974335}
 --- !u!114 &259261921
 MonoBehaviour:
   m_ObjectHideFlags: 0

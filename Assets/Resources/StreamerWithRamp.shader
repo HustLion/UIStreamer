@@ -55,12 +55,13 @@
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
                 fixed4 color : COLOR;
                 float4 worldPosition : TEXCOORD1;
                 float4 objectPosition : TEXCOORD2;
                 float4 srcPos : TEXCOORD3; // screenPosition
+                // float4 sp : WPOS;
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
@@ -111,14 +112,17 @@
                 
                 color *= UnityGet2DClipping(i.worldPosition.xy, _ClipRect);
                 float2 dir = _ToPosition.xy - _FromPosition.xy;
-                // float2 screenPos = i.vertex.xy;
-                float2 screenPos = i.srcPos.xy;
+                float2 screenPos = i.vertex.xy;
+                // float2 screenPos = i.srcPos.xy;
+                // float2 screenPos = i.srcPos.xy / i.srcPos.w;
+                // float2 screenPos = i.sp.xy;
                 float d = clamp(dot(dir, screenPos.xy - _FromPosition.xy) / pow(length(dir), 2.0), 0.0, 1.0);
                 float t = frac(_Progress * _MoveSpeed);
                 d += t;
                 if (d > 1.0) d -= 1.0;
                 if (d < 0.0) d += 1.0;
                 
+                // d = t; // debug: isolate d. when there's only t, no effect change with position change.
                 fixed4 ramp = tex2D(_StreamerTexture, float2(d, 0.5));
                 fixed4 cAdd = _StreamerColor * ramp.r * _Power;
                 if (color.a > 1e-6) {
