@@ -45,10 +45,11 @@ namespace Coffee.UIEffects
 
                     var min = bounds.min; // LeftTop
                     var xyMax = Math.Max(bounds.size.x, bounds.size.y);
-                    var worldLeftBottom = new Vector3(min.x, min.y + xyMax, min.z);
-                    var worldRightTop = new Vector3(min.x + xyMax, min.y, min.z);
-                    var toPosition = new Vector4(worldRightTop.x, worldRightTop.y, worldRightTop.z, 1.0f);
-                    var fromPosition = new Vector4(worldLeftBottom.x, worldLeftBottom.y, worldLeftBottom.z, 1.0f);
+                    var worldLeftTop = new Vector3(min.x, min.y + xyMax, min.z);
+                    var worldRightBottom = new Vector3(min.x + xyMax, min.y, min.z);
+                    var toPosition = new Vector4(worldRightBottom.x, worldRightBottom.y, worldRightBottom.z, 1.0f);
+                    var fromPosition = new Vector4(worldLeftTop.x, worldLeftTop.y, worldLeftTop.z, 1.0f);
+                    Debug.DrawLine(fromPosition, toPosition, Color.green);
                     if (canvas.renderMode == RenderMode.WorldSpace)
                     {
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
@@ -62,13 +63,13 @@ namespace Coffee.UIEffects
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
                         var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
                         mat.SetVector("_ToPosition", toPosition);
-                        mat.SetVector("_FromPosition", toPosition);
+                        mat.SetVector("_FromPosition", fromPosition);
                         Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                     } else if (canvas.renderMode == RenderMode.ScreenSpaceCamera) {
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
                         var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
                         mat.SetVector("_ToPosition", toPosition);
-                        mat.SetVector("_FromPosition", toPosition);
+                        mat.SetVector("_FromPosition", fromPosition);
                         Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                     }
                 }
