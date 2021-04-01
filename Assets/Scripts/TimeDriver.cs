@@ -49,8 +49,8 @@ namespace Coffee.UIEffects
                     var worldRightBottom = new Vector3(min.x + xyMax, min.y, min.z);
                     var toPosition = new Vector4(worldRightBottom.x, worldRightBottom.y, worldRightBottom.z, 1.0f);
                     var fromPosition = new Vector4(worldLeftTop.x, worldLeftTop.y, worldLeftTop.z, 1.0f);
-                    Debug.DrawLine(fromPosition, toPosition, Color.green);
-                    Debug.Log(Screen.height);
+                    // Debug.DrawLine(fromPosition, toPosition, Color.green);
+                    // Debug.Log(Screen.height);
                     if (canvas.renderMode == RenderMode.WorldSpace)
                     {
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
@@ -58,21 +58,23 @@ namespace Coffee.UIEffects
 
                         mat.SetVector("_ToPosition", toPositionSp);
                         mat.SetVector("_FromPosition", fromPositionSp);
-                        Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
+                        mat.SetFloat("_ScreenHeight", 0);
+                        // Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                         
                     } else if (canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
-                        var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
-                        var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
+                        // var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
+                        // var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
                         mat.SetVector("_ToPosition", toPosition);
                         mat.SetVector("_FromPosition", fromPosition);
                         mat.SetFloat("_ScreenHeight", Screen.height);
-                        Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
+                        // Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                     } else if (canvas.renderMode == RenderMode.ScreenSpaceCamera) {
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
                         var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
-                        mat.SetVector("_ToPosition", toPosition);
-                        mat.SetVector("_FromPosition", fromPosition);
-                        Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
+                        mat.SetVector("_ToPosition", toPositionSp);
+                        mat.SetVector("_FromPosition", fromPositionSp);
+                        mat.SetFloat("_ScreenHeight", 0);
+                        // Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                     }
                 }
 

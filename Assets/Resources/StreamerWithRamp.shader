@@ -13,7 +13,7 @@
 		_Progress("Progress", Range(0.0, 1.0)) = 0
 		[HideInInspector]_FromPosition("From Position", Vector) = (0, 0, 0, 0)
 		[HideInInspector]_ToPosition("To Position", Vector) = (0, 0, 0, 0)
-        [HideInInspector]_ScreenHeight("Screen Height", Float) = 600 // Platform specific due to DX/OpenGL differences
+        [HideInInspector]_ScreenHeight("Screen Height", Float) = 0 // Platform specific due to DX/OpenGL differences
 		_StreamerTexture("Streamer Texture", 2D) = "White" {}
     }
     SubShader
@@ -116,7 +116,9 @@
                 float2 dir = _ToPosition.xy - _FromPosition.xy;
                 float2 screenPos = i.vertex.xy;
                 #ifdef UNITY_UV_STARTS_AT_TOP
-                screenPos.y = _ScreenHeight - screenPos.y;
+                if (_ScreenHeight > 0.0) { // sceenHeight set only for Overlay Canvas
+                    screenPos.y = _ScreenHeight - screenPos.y;
+                }
                 #endif
                 // float2 screenPos = i.srcPos.xy;
                 // float2 screenPos = i.srcPos.xy / i.srcPos.w;
