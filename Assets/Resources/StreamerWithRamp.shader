@@ -13,6 +13,7 @@
 		_Progress("Progress", Range(0.0, 1.0)) = 0
 		[HideInInspector]_FromPosition("From Position", Vector) = (0, 0, 0, 0)
 		[HideInInspector]_ToPosition("To Position", Vector) = (0, 0, 0, 0)
+        [HideInInspector]_ScreenHeight("Screen Height", Float) = 600 // Platform specific due to DX/OpenGL differences
 		_StreamerTexture("Streamer Texture", 2D) = "White" {}
     }
     SubShader
@@ -94,6 +95,7 @@
             float _Power;
             float _MoveSpeed;
             float _Progress;
+            float _ScreenHeight;
             fixed4 _StreamerColor;
             fixed4 _FromPosition;
             fixed4 _ToPosition;
@@ -113,6 +115,9 @@
                 color *= UnityGet2DClipping(i.worldPosition.xy, _ClipRect);
                 float2 dir = _ToPosition.xy - _FromPosition.xy;
                 float2 screenPos = i.vertex.xy;
+                #ifdef UNITY_UV_STARTS_AT_TOP
+                screenPos.y = _ScreenHeight - screenPos.y;
+                #endif
                 // float2 screenPos = i.srcPos.xy;
                 // float2 screenPos = i.srcPos.xy / i.srcPos.w;
                 // float2 screenPos = i.sp.xy;
