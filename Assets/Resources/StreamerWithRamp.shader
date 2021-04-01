@@ -60,9 +60,6 @@
                 float2 uv : TEXCOORD0;
                 fixed4 color : COLOR;
                 float4 worldPosition : TEXCOORD1;
-                float4 objectPosition : TEXCOORD2;
-                float4 srcPos : TEXCOORD3; // screenPosition
-                // float4 sp : WPOS;
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
@@ -85,9 +82,6 @@
                 #endif
                 
                 o.worldPosition = v.vertex;
-                o.objectPosition = o.vertex;
-                // o.srcPos = ComputeScreenPos(UnityObjectToClipPos(v.vertex));
-                o.srcPos = ComputeScreenPos(v.vertex);
                 
                 return o;
             }
@@ -116,25 +110,19 @@
                 float2 dir = _ToPosition.xy - _FromPosition.xy;
                 float2 screenPos = i.vertex.xy;
                 #ifdef UNITY_UV_STARTS_AT_TOP
-                if (_ScreenHeight > 0.0) { // sceenHeight set only for Overlay Canvas
+                if (_ScreenHeight > 0.0) { // screenHeight set only for Overlay Canvas
                     screenPos.y = _ScreenHeight - screenPos.y;
                 }
                 #endif
-                // float2 screenPos = i.srcPos.xy;
-                // float2 screenPos = i.srcPos.xy / i.srcPos.w;
-                // float2 screenPos = i.sp.xy;
                 float d = clamp(dot(dir, screenPos.xy - _FromPosition.xy) / pow(length(dir), 2.0), 0.0, 1.0);
                 float t = frac(_Progress * _MoveSpeed);
                 d += t;
                 if (d > 1.0) d -= 1.0;
                 if (d < 0.0) d += 1.0;
                 
-                // d = t; // debug: isolate d. when there's only t, no effect change with position change.
                 fixed4 ramp = tex2D(_StreamerTexture, float2(d, 0.5));
                 fixed4 cAdd = _StreamerColor * ramp.r * _Power;
-                if (color.a > 1e-6) {
-                    color += cAdd;
-                }
+                color.rgb += cAdd.rgb * cAdd;
                 
                 // this causes compile error when building towards WebGL (gles, gles3)
                 // #ifdef UNITY_UI_ALPHACLIP

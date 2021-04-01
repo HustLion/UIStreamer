@@ -43,14 +43,13 @@ namespace Coffee.UIEffects
                         bounds.Encapsulate(worldCorners[i]);
                     }
 
-                    var min = bounds.min; // LeftTop
+                    var min = bounds.min; // LeftBottom
                     var xyMax = Math.Max(bounds.size.x, bounds.size.y);
                     var worldLeftTop = new Vector3(min.x, min.y + xyMax, min.z);
                     var worldRightBottom = new Vector3(min.x + xyMax, min.y, min.z);
                     var toPosition = new Vector4(worldRightBottom.x, worldRightBottom.y, worldRightBottom.z, 1.0f);
                     var fromPosition = new Vector4(worldLeftTop.x, worldLeftTop.y, worldLeftTop.z, 1.0f);
                     // Debug.DrawLine(fromPosition, toPosition, Color.green);
-                    // Debug.Log(Screen.height);
                     if (canvas.renderMode == RenderMode.WorldSpace)
                     {
                         var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
@@ -61,11 +60,12 @@ namespace Coffee.UIEffects
                         mat.SetFloat("_ScreenHeight", 0);
                         // Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                         
-                    } else if (canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
-                        // var toPositionSp = Camera.main.WorldToScreenPoint(toPosition);
-                        // var fromPositionSp = Camera.main.WorldToScreenPoint(fromPosition);
-                        mat.SetVector("_ToPosition", toPosition);
-                        mat.SetVector("_FromPosition", fromPosition);
+                    } else if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+                    {
+                        var toPositionSp = toPosition;
+                        var fromPositionSp = fromPosition;
+                        mat.SetVector("_ToPosition", toPositionSp);
+                        mat.SetVector("_FromPosition", fromPositionSp);
                         mat.SetFloat("_ScreenHeight", Screen.height);
                         // Debug.Log($"from: {fromPosition}, to: {toPosition}; sp: {fromPositionSp} {toPositionSp}");
                     } else if (canvas.renderMode == RenderMode.ScreenSpaceCamera) {
