@@ -1,4 +1,4 @@
-﻿Shader "Unlit/StreamerWithRamp"
+﻿Shader "Hidden/UI/Default (StreamerWithRamp)"
 {
     Properties
     {
