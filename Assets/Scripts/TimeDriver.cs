@@ -32,6 +32,7 @@ namespace Coffee.UIEffects
         {
             if (shouldUpdate && mat != null)
             {
+                mat.SetFloat("_Progress", _Time);
                 var rt = GetComponent<RectTransform>();
                 if (rt)
                 {
