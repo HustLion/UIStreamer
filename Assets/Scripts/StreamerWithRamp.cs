@@ -25,7 +25,17 @@ namespace Coffee.UIEffects
                 SetEffectParamsDirty();
             }
         }
-        
+
+        protected override void SetEffectParamsDirty()
+        {
+            base.SetEffectParamsDirty();
+            if (mat)
+            {
+                mat.SetFloat("_Progress", progress);
+            }
+            
+        }
+
         public EffectPlayer effectPlayer
         {
             get { return m_Player ?? (m_Player = new EffectPlayer()); }
@@ -58,8 +68,12 @@ namespace Coffee.UIEffects
             var connector = GraphicConnector.FindConnector(graphic);
 
             newMaterial.shader = Shader.Find(string.Format("Hidden/{0} (StreamerWithRamp)", newMaterial.shader.name));
+            mat = newMaterial;
             // paramTex.RegisterMaterial(newMaterial);
         }
+
+        private Material mat;
+        
         public void Play(bool reset = true)
         {
             effectPlayer.Play(reset);
