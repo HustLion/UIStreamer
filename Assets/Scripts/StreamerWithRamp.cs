@@ -9,6 +9,9 @@ namespace Coffee.UIEffects
         private const uint k_ShaderId = 1 << 4;
         [Tooltip("Effect Progress")] [SerializeField] [Range(0, 1)]
         float m_Progress = 0f;
+
+        [Tooltip("Streamer Texture")] [SerializeField]
+        private Texture2D m_StreamerTexture;
         
         [SerializeField] EffectPlayer m_Player;
         /// <summary>
@@ -26,12 +29,24 @@ namespace Coffee.UIEffects
             }
         }
 
+        public Texture2D streamerTexture
+        {
+            get { return m_StreamerTexture; }
+            set
+            {
+                if (value == m_StreamerTexture) return;
+                m_StreamerTexture = value;
+                SetEffectParamsDirty();
+            }
+        }
+
         protected override void SetEffectParamsDirty()
         {
             base.SetEffectParamsDirty();
             if (mat)
             {
                 mat.SetFloat("_Progress", progress);
+                mat.SetTexture("_StreamerTexture", streamerTexture);
             }
             
         }

@@ -8,6 +8,7 @@ namespace Coffee.UIEffects.Editors
     public class StreamerWithRampEditor : Editor
     {
         SerializedProperty _spProgress;
+        private SerializedProperty _spStreamerTexture;
         
         SerializedProperty _spPlay;
         SerializedProperty _spLoop;
@@ -19,6 +20,7 @@ namespace Coffee.UIEffects.Editors
         private void OnEnable()
         {
             _spProgress = serializedObject.FindProperty("m_Progress");
+            _spStreamerTexture = serializedObject.FindProperty("m_StreamerTexture");
             var player = serializedObject.FindProperty("m_Player");
             _spPlay = player.FindPropertyRelative("play");
             _spDuration = player.FindPropertyRelative("duration");
@@ -37,6 +39,7 @@ namespace Coffee.UIEffects.Editors
             // Effect setting.
             //================
             EditorGUILayout.PropertyField(_spProgress);
+            EditorGUILayout.PropertyField(_spStreamerTexture);
             //================
             // Effect player.
             //================
