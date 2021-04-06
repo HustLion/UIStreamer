@@ -15,6 +15,15 @@ namespace Coffee.UIEffects
 
         [Tooltip("Streamer Texture")] [SerializeField]
         private Texture2D m_StreamerTexture;
+
+        [SerializeField]
+        private Color m_StreamerColor = Color.white;
+
+        [SerializeField][Range(0, 10)]
+        private float m_MoveSpeed = 1f;
+
+        [SerializeField][Range(0,10)]
+        private float m_Power = 1f;
         
         [SerializeField] EffectPlayer m_Player;
         /// <summary>
@@ -43,6 +52,39 @@ namespace Coffee.UIEffects
             }
         }
 
+        public Color streamerColor
+        {
+            get => m_StreamerColor;
+            set
+            {
+                if (m_StreamerColor == value) return;
+                m_StreamerColor = value;
+                SetEffectParamsDirty();
+            }
+        }
+
+        public float moveSpeed
+        {
+            get => m_MoveSpeed;
+            set
+            {
+                if (Mathf.Approximately(m_MoveSpeed, value)) return;
+                m_MoveSpeed = value;
+                SetEffectParamsDirty();
+            }
+        }
+
+        public float power
+        {
+            get => m_Power;
+            set
+            {
+                if (Mathf.Approximately(m_Power, value)) return;
+                m_Power = value;
+                SetEffectParamsDirty();
+            }
+        }
+
         protected override void SetEffectParamsDirty()
         {
             base.SetEffectParamsDirty();
@@ -50,8 +92,10 @@ namespace Coffee.UIEffects
             {
                 mat.SetFloat("_Progress", progress);
                 mat.SetTexture("_StreamerTexture", streamerTexture);
+                mat.SetColor("_StreamerColor", streamerColor);
+                mat.SetFloat("_MoveSpeed", moveSpeed);
+                mat.SetFloat("_Power", power);
             }
-            
         }
 
         public EffectPlayer effectPlayer

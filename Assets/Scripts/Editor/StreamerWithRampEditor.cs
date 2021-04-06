@@ -9,6 +9,9 @@ namespace Coffee.UIEffects.Editors
     {
         SerializedProperty _spProgress;
         private SerializedProperty _spStreamerTexture;
+        private SerializedProperty _spStreamerColor;
+        private SerializedProperty _spMoveSpeed;
+        private SerializedProperty _spPower;
         
         SerializedProperty _spPlay;
         SerializedProperty _spLoop;
@@ -21,6 +24,9 @@ namespace Coffee.UIEffects.Editors
         {
             _spProgress = serializedObject.FindProperty("m_Progress");
             _spStreamerTexture = serializedObject.FindProperty("m_StreamerTexture");
+            _spStreamerColor = serializedObject.FindProperty("m_StreamerColor");
+            _spMoveSpeed = serializedObject.FindProperty("m_MoveSpeed");
+            _spPower = serializedObject.FindProperty("m_Power");
             var player = serializedObject.FindProperty("m_Player");
             _spPlay = player.FindPropertyRelative("play");
             _spDuration = player.FindPropertyRelative("duration");
@@ -40,6 +46,9 @@ namespace Coffee.UIEffects.Editors
             //================
             EditorGUILayout.PropertyField(_spProgress);
             EditorGUILayout.PropertyField(_spStreamerTexture);
+            EditorGUILayout.PropertyField(_spStreamerColor);
+            EditorGUILayout.PropertyField(_spMoveSpeed);
+            EditorGUILayout.PropertyField(_spPower);
             //================
             // Effect player.
             //================
