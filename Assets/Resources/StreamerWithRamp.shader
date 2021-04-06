@@ -5,6 +5,7 @@
 		[PerRendererData] _MainTex ("Main Texture", 2D) = "white" {}
 		_ColorMask ("Color Mask", Float) = 15
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
+        _Color("Vertex Color from Graphics component", Color) = (1, 1, 1, 1)
 		
 		_StreamerColor("Streamer Color", Color) = (1, 0, 0, 1)
 		_MoveSpeed("Speed", Float) = 1

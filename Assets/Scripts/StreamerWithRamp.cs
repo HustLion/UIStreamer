@@ -88,6 +88,11 @@ namespace Coffee.UIEffects
         protected override void SetEffectParamsDirty()
         {
             base.SetEffectParamsDirty();
+            SetMaterialParams();
+        }
+
+        protected void SetMaterialParams()
+        {
             if (mat)
             {
                 mat.SetFloat("_Progress", progress);
@@ -96,6 +101,7 @@ namespace Coffee.UIEffects
                 mat.SetFloat("_MoveSpeed", moveSpeed);
                 mat.SetFloat("_Power", power);
             }
+            
         }
 
         public EffectPlayer effectPlayer
@@ -131,7 +137,7 @@ namespace Coffee.UIEffects
 
             newMaterial.shader = Shader.Find(string.Format("Hidden/{0} (StreamerWithRamp)", newMaterial.shader.name));
             mat = newMaterial;
-            // paramTex.RegisterMaterial(newMaterial);
+            SetMaterialParams(); // set initial value
         }
 
         
