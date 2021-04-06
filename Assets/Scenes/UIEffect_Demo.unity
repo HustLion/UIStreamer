@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 78434635}
   - component: {fileID: 78434634}
   m_Layer: 5
-  m_Name: Image 45%
+  m_Name: Image 0%
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,11 +769,11 @@ RectTransform:
   m_Children:
   - {fileID: 1153031403}
   m_Father: {fileID: 591624344}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 292.50003, y: 0}
+  m_AnchoredPosition: {x: 97.50001, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78434634
@@ -785,11 +785,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 78434632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acf0086878a4de9bbb5e66faccf7b52, type: 3}
+  m_Script: {fileID: 11500000, guid: f1475833a6f84a33beb3fe73caf54751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldUpdate: 1
-  canvas: {fileID: 2059974335}
+  m_Progress: 0
+  m_StreamerTexture: {fileID: 2800000, guid: 315063583937d1a45bdc475f4f9c08cc, type: 3}
+  m_StreamerColor: {r: 1, g: 1, b: 1, a: 1}
+  m_MoveSpeed: 1
+  m_Power: 1
+  m_Player:
+    play: 0
+    initialPlayDelay: 0
+    duration: 1
+    loop: 0
+    loopDelay: 0
+    updateMode: 0
 --- !u!114 &78434635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 46514fc47c779294cb28035c1e773cc2, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -1919,10 +1929,9 @@ GameObject:
   - component: {fileID: 259261923}
   - component: {fileID: 259261922}
   - component: {fileID: 259261921}
-  - component: {fileID: 259261920}
   - component: {fileID: 259261925}
   m_Layer: 5
-  m_Name: Image 35%
+  m_Name: Image 17%
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1942,27 +1951,13 @@ RectTransform:
   - {fileID: 1447563463}
   - {fileID: 1548701652}
   m_Father: {fileID: 591624344}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 97.50001, y: 0}
+  m_AnchoredPosition: {x: 292.50003, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &259261920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259261918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acf0086878a4de9bbb5e66faccf7b52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shouldUpdate: 1
-  canvas: {fileID: 2059974335}
 --- !u!114 &259261921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,7 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1475833a6f84a33beb3fe73caf54751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Progress: 0
+  m_Progress: 0.17
   m_StreamerTexture: {fileID: 2800000, guid: 315063583937d1a45bdc475f4f9c08cc, type: 3}
   m_StreamerColor: {r: 1, g: 1, b: 1, a: 1}
   m_MoveSpeed: 1
@@ -3379,8 +3374,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 259261919}
   - {fileID: 78434633}
+  - {fileID: 259261919}
   - {fileID: 1941712625}
   - {fileID: 1334180915}
   m_Father: {fileID: 895022998}
@@ -6607,7 +6602,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0.55
+  m_Text: 0.85
 --- !u!222 &1039969972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7194,7 +7189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0.45
+  m_Text: 0.0
 --- !u!222 &1153031407
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7881,8 +7876,8 @@ GameObject:
   - component: {fileID: 1334180920}
   - component: {fileID: 1334180919}
   - component: {fileID: 1334180918}
-  - component: {fileID: 1334180917}
   - component: {fileID: 1334180916}
+  - component: {fileID: 1334180917}
   m_Layer: 5
   m_Name: Animation
   m_TagString: Untagged
@@ -7938,21 +7933,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334180914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Script: {fileID: 11500000, guid: f1475833a6f84a33beb3fe73caf54751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 1
-  m_Width: 0.154
-  m_Rotation: 135
-  m_Softness: 1
-  m_Brightness: 1
-  m_Gloss: 1
-  m_EffectArea: 0
+  m_Progress: 0
+  m_StreamerTexture: {fileID: 2800000, guid: 315063583937d1a45bdc475f4f9c08cc, type: 3}
+  m_StreamerColor: {r: 1, g: 1, b: 1, a: 1}
+  m_MoveSpeed: 1
+  m_Power: 1
   m_Player:
-    play: 0
+    play: 1
     initialPlayDelay: 0
     duration: 1
-    loop: 0
+    loop: 1
     loopDelay: 0
     updateMode: 0
 --- !u!114 &1334180918
@@ -8374,7 +8367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0.35
+  m_Text: 0.17
 --- !u!222 &1447563467
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10887,7 +10880,7 @@ GameObject:
   - component: {fileID: 1941712627}
   - component: {fileID: 1941712626}
   m_Layer: 5
-  m_Name: Image 55%
+  m_Name: Image 85%
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10922,16 +10915,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941712624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Script: {fileID: 11500000, guid: f1475833a6f84a33beb3fe73caf54751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0.55
-  m_Width: 0.154
-  m_Rotation: 135
-  m_Softness: 1
-  m_Brightness: 1
-  m_Gloss: 1
-  m_EffectArea: 0
+  m_Progress: 0.85
+  m_StreamerTexture: {fileID: 2800000, guid: 315063583937d1a45bdc475f4f9c08cc, type: 3}
+  m_StreamerColor: {r: 1, g: 1, b: 1, a: 1}
+  m_MoveSpeed: 1
+  m_Power: 1
   m_Player:
     play: 0
     initialPlayDelay: 0

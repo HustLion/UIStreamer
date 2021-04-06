@@ -127,7 +127,7 @@ namespace Coffee.UIEffects
             return new Hash128(
                 (uint) material.GetInstanceID(),
                 k_ShaderId,
-                0,
+                (uint) this.GetInstanceID(), // unique for every component due to the world position params
                 0
             );
         }
